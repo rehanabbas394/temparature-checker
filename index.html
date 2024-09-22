@@ -1,0 +1,118 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+        .class1 {
+            margin-bottom: 20px;
+        }
+
+        .class1 h1 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .class1 input[type="number"] {
+            width: 94%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+        }
+
+        .class1 input[type="number"]:focus {
+            outline: none;
+            border-color: #5b9dd9;
+            box-shadow: 0 0 5px rgba(91, 157, 217, 0.5);
+        }
+        button{
+            background-color: blue;
+            color: white;
+            font-size: 12px;
+            border: none;
+            border: none;
+            padding: 8px;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Temperature Checker</h1>
+        <div class="class1">
+            <h1>Celsius</h1>
+            <input type="number" placeholder="Enter value Here" value="0" class="class1" id="cel">
+        </div>
+        <div class="class1">
+            <h1>Fahrenheit</h1>
+            <input type="number" placeholder="Enter value Here" value="32" class="class1" id="freh">
+        </div>
+        <button id="btn">Check</button>
+    </div>
+
+    <script>
+        // for input not button
+
+//         let cel=document.getElementById('cel');
+//         let freh=document.getElementById('freh')
+//         let btn=document.getElementById('btn')
+
+//     // add addEventListener on cel and freh 
+//     btn.addEventListener("click",celsius);
+//     btn.addEventListener("click",frehenheit);
+
+
+//     function celsius(){
+//         let c=cel.value;
+//         let f=(c * 9/5) + 32;
+//         freh.value=f.toFixed(2)
+//         // console.log(f)
+//     }
+//    function frehenheit(){
+//         let ff=freh.value;
+//         let c=(ff-32) * 5/9;
+//         cel.value=c.toFixed(2);
+//    }
+
+
+// for button click 
+
+ // Get the input fields and the button
+ const celsiusInput = document.getElementById('cel');
+        const fahrenheitInput = document.getElementById('freh');
+        const button = document.getElementById('btn');
+
+        // Add event listener to the button
+        button.addEventListener('click', convertTemperatures);
+
+        function convertTemperatures() {
+            const celsius = parseFloat(celsiusInput.value);
+            const fahrenheit = parseFloat(fahrenheitInput.value);
+
+            if (!isNaN(celsius)) {
+                const convertedFahrenheit = (celsius * 9/5) + 32;
+                fahrenheitInput.value = convertedFahrenheit.toFixed(2);
+            }
+
+            if (!isNaN(fahrenheit)) {
+                const convertedCelsius = (fahrenheit - 32) * 5/9;
+                celsiusInput.value = convertedCelsius.toFixed(2);
+            }
+        }
+    </script>
+</body>
+</html>
